@@ -40,13 +40,13 @@ component {
 	}
 
 	string function getRemoteIp(){
-		if( len( cgi.http_x_cluster_client_ip)  ) {
-			return trim( listFirst( cgi.http_x_cluster_client_ip ) );
+		if( len( cgi.HTTP_X_REAL_IP )  ) {
+			return cgi.HTTP_X_REAL_IP;
 		}
-		if( len( cgi.http_x_forwarded_for ) ) {
-			return trim( listFirst( cgi.http_x_forwarded_for ) );
+		if( len( cgi.HTTP_X_FORWARDED_FOR ) ) {
+			return trim( listFirst( cgi.cgi.HTTP_X_REAL_IP ) );
 		}
-		return cgi.remote_addr;
+		return cgi.REMOTE_ADDR;
 	}
 
 	struct function ipDetail( string ip= this.getRemoteIp() ) {
