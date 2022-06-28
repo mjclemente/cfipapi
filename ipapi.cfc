@@ -1,5 +1,5 @@
 component {
-	// cfprocessingdirective( preserveCase=true );
+	cfprocessingdirective( preserveCase=true );
 
 	function init(
 		string apiKey= ""
