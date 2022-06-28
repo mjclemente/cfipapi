@@ -6,7 +6,7 @@ component {
     string apiKey       = "",
     string apiUrl       = "https://ipapi.co",
     numeric throttle    = 100,
-    string userAgent    = "ipapi-cfml-api-client/0.1",
+    string userAgent    = "ipapi-cfml-api-client/0.7",
     numeric httpTimeOut = 3,
     boolean debug
   ) {
