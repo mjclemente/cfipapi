@@ -9,7 +9,7 @@ component {
 	,	numeric httpTimeOut= 3
 	,	boolean debug
 	) {
-		arguments.debug = ( arguments.debug ?: request.debug ?: false );
+		arguments.debug = ( arguments.debug ?: false );
 		this.apiUrl= arguments.apiUrl;
 		this.apiKey= arguments.apiKey;
 		this.userAgent= arguments.userAgent;
@@ -21,14 +21,7 @@ component {
 	}
 
 	function debugLog( required input ) {
-		if ( structKeyExists( request, "log" ) && isCustomFunction( request.log ) ) {
-			if ( isSimpleValue( arguments.input ) ) {
-				request.log( "ipapi: " & arguments.input );
-			} else {
-				request.log( "ipapi: (complex type)" );
-				request.log( arguments.input );
-			}
-		} else if( this.debug ) {
+		if( this.debug ) {
 			var info= ( isSimpleValue( arguments.input ) ? arguments.input : serializeJson( arguments.input ) );
 			cftrace(
 				var= "info"
