@@ -16,7 +16,7 @@ component {
 		this.throttle= arguments.throttle;
 		this.httpTimeOut= arguments.httpTimeOut;
 		this.debug= arguments.debug;
-		this.lastRequest= server.ipapi_lastRequest ?: 0;
+		this.lastRequest = 0;
 		return this;
 	}
 
@@ -90,7 +90,6 @@ component {
 		}
 		if ( this.throttle > 0 ) {
 			this.lastRequest= getTickCount();
-			server.ipapi_lastRequest= this.lastRequest;
 		}
 		out.response= toString( http.fileContent );
 		// this.debugLog( out.response );
